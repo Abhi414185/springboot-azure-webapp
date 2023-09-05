@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "id": 3,
+      "rollNo": "01",
+      "name": "Ravi",
+      "dateOfBirth": "22/02/2000",
+      "scores": "85"
+    }
+  ],
+  "signup": [
+    {
+      "name": "a",
+      "email": "a@gmail.com",
+      "password": "1234",
+      "id": 1
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

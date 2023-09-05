@@ -1,0 +1,77 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2>Students Management System</h2>
+        <div class="d-flex">
+            <button (click)="clickAddStudent()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add
+                Student</button>
+            <button routerLink="/login" class="btn btn-Danger mx-3">Log Out</button>
+        </div>
+    </div>
+</nav>
+<!--Table Shown Here-->
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Roll No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date Of Birth</th>
+            <th scope="col">Score</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allStudentData">
+            <td>{{data.id}}</td>
+            <td>{{data.rollNo}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.dateOfBirth}}</td>
+            <td>{{data.scores}}</td>
+            <td>
+                <button (click)="onEditStudent(data)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>&nbsp;
+                <button (click)="deleteStudent(data)" class="btn btn-Danger">Delete</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+<!--Modal Addition For Add Student-->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div class="mb-3">
+                        <label class="form-label">Roll Number</label>
+                        <input type="text" formControlName="rollNo" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date Of Birth</label>
+                        <input type="text" formControlName="dateOfBirth" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Score</label>
+                        <input type="text" formControlName="scores" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button *ngIf="showAdd" type="button" class="btn btn-primary"(click)="addStudent()">Add Details</button>
+                <button *ngIf="showbtn" type="button" class="btn btn-primary"(click)="updateStudent()">update Details</button>
+            </div>
+        </div>
+    </div>
+</div>

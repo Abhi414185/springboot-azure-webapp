@@ -1,0 +1,45 @@
+.vl {
+    border-left: 2px solid rgb(10, 183, 145);
+    height: 400px;
+  }
+
+  table,th,td{
+      border: 2px solid #a8eb34;
+      border-collapse: collapse;
+  }
+
+  img{
+      width: 100px;
+  }
+.wraps{
+    border-right: 1px dashed rgb(6, 7, 6);
+}
+ 
+tr {
+    animation: fadeInAnimation ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+.required::after{
+    content: "*";
+    color: red;
+}
+
+.text{
+    padding-left: 100px;
+    color: blue;
+}

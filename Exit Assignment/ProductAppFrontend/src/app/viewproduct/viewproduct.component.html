@@ -1,0 +1,35 @@
+  
+  <div class="container">
+    <h2>Product Details Page</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Brand</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Product Price</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.brand}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td><input class="form-control mr-sm-2" type="search" placeholder="Enter Pincode" aria-label="Search">&nbsp;
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Check Serviceability</button>
+            </td>
+                
+        </tr>
+        </tbody>
+    </table>
+  </div>
+
+  <div class="container">
+    <button type="button" class="btn btn-primary" (click)="gotoproductlist()">Back</button>
+</div>
+  

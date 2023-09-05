@@ -1,0 +1,43 @@
+<div class="container"> 
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Products </a>
+        <form class="form-inline">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="name" [(ngModel)]="name">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="findUserByName()">Search</button>
+        </form>
+    </nav>
+</div>
+
+<div class="container">
+  <h2>Product List</h2>
+  <table class="table">
+      <thead class="thead-dark">
+      <tr>
+          <th scope="col">Product Id</th>
+          <th scope="col">Product Name</th>
+          <!-- <th scope="col">Product Brand</th>
+          <th scope="col">Product Description</th>
+          <th scope="col">Product Price</th>
+          <th scope="col">Action</th> -->
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products ">
+          
+          <td>{{product.id}}</td>
+          <td>{{product.name}}</td>
+          <!-- <td>{{product.brand}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.price}}</td> -->
+          <td>
+              <button type="button" class="btn btn-primary" (click)="gotoViewProduct(product.id)">View Details</button>
+          </td>
+      </tr>
+      </tbody>
+  </table>
+</div>
+
+<div class="container">
+    <button type="button" class="btn btn-primary" (click)="gotologin()">Logout</button>
+</div>
+

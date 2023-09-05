@@ -1,0 +1,32 @@
+package com.nagarro.assignment.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nagarro.assignment.models.Product;
+import com.nagarro.assignment.repository.ProductRepository;
+
+@Service
+public class ProductService {
+	
+	@Autowired
+	private ProductRepository repo;
+	
+	public List<Product> fetchproductList(){
+		return repo.findAll();
+	}
+	
+	public Product saveProductToDB(Product product) {
+		return repo.save(product);
+		
+	}
+	
+	public Optional<Product> fetchProductById(int id) {
+		return repo.findById(id);
+		
+	}
+
+}

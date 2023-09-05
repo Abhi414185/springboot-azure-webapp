@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    
+    tools{
+        maven "MAVEN"
+    }
+
+    stages {
+	
+		stage("Checkout Code"){
+			steps
+			{
+				checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '76ad5f55-2b2d-46ff-b359-b591b1bbd5bf', url: 'https://git.nagarro.com/GITG00641/Java/abhiraj-gope']])
+				echo 'Checkout'
+			}
+        	}
+
+		stage("Build Maven"){
+			steps{
+				bat "mvn -f DevOps-assignment-3/ProductCatalogBackend/pom.xml clean install"
+				echo 'Building'
+				}
+		}
+		stage("Build Docker Image"){
+			steps{
+				bat "wsl docker build -t abhi9635/productcatalogbackend ."
+				echo 'Building Docker Image....'
+				}
+		}
+		stage("Push Image To Docker Hub"){
+			steps{
+				withCredentials([string(credentialsId: 'da0e68e1-693c-4691-a6c0-361e667f25fe', variable: 'dockerhubpwd')]) {
+    				bat"wsl docker login -u abhi9635 -p ${dockerhubpwd}"
+				}
+				bat "wsl docker push abhi9635/productcatalogbackend" 
+			}
+		}
+	}
+}
+
